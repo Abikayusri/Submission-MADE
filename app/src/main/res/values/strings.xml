@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SubmissionMovie</string>
+    <string name="judul_film">Judul Film:</string>
+    <string name="release_film">Release Film:</string>
+    <string name="nama_filmnya">Nama Filmnya</string>
+    <string name="deskripsi_filmnya">Deskripsi Filmnya</string>
+    <string name="release_filmnya">Release Filmnya</string>
+    <string name="deskripsi_film">Description</string>
+    <string name="rating_filmnya">Rating Filmnya</string>
+    <string name="rating_film">Rating Film:</string>
+    <string name="genre_filmnya">Genre Filmnya</string>
+</resources>
