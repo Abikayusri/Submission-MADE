@@ -4,9 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Movie implements Parcelable {
-    private String movieName;
-    private String movieDescription;
-    private String movieRelease;
+    private String movieName, movieDescription, movieRelease;
+    private float movieRating;
+    private int imgResource;
+
 
     public String getMovieGenre() {
         return movieGenre;
@@ -25,11 +26,6 @@ public class Movie implements Parcelable {
     public void setMovieRating(float movieRating) {
         this.movieRating = movieRating;
     }
-
-    private float movieRating;
-
-    private int imgResource;
-
 
     public String getMovieName() {
         return movieName;
