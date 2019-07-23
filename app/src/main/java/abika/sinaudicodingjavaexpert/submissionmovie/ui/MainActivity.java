@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("19 January 2019");
         movie.setMovieGenre("Drama, Romance, Music");
         movie.setMovieRating(7.8f);
-        movie.setImgResource(R.drawable.poster_a_star);
+        movie.setImgResource(R.drawable.mv_a_start_is_born);
 
         dummyMovies.add(movie);
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("7 December 2018");
         movie.setMovieGenre("Action, Adventure, Fantasy");
         movie.setMovieRating(7.1f);
-        movie.setImgResource(R.drawable.poster_aquaman);
+        movie.setImgResource(R.drawable.mv_alita);
 
         dummyMovies.add(movie);
 
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("23 April 2018");
         movie.setMovieGenre("Action, Adventure, Fantasy");
         movie.setMovieRating(8.4f);
-        movie.setImgResource(R.drawable.poster_avengerinfinity);
+        movie.setImgResource(R.drawable.mv_aquaman);
 
         dummyMovies.add(movie);
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("13 December 2018");
         movie.setMovieGenre("Thriller, Drama");
         movie.setMovieRating(6.6f);
-        movie.setImgResource(R.drawable.poster_birdbox);
+        movie.setImgResource(R.drawable.mv_bohemian);
 
         dummyMovies.add(movie);
 
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("4 October 2018");
         movie.setMovieGenre("Drama, Music");
         movie.setMovieRating(8.0f);
-        movie.setImgResource(R.drawable.poster_bohemian);
+        movie.setImgResource(R.drawable.mv_cold_persuit);
 
         dummyMovies.add(movie);
 
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("15 December 2018");
         movie.setMovieGenre("Action, Adventure, Science Fiction");
         movie.setMovieRating(7.2f);
-        movie.setImgResource(R.drawable.poster_bumblebee);
+        movie.setImgResource(R.drawable.mv_creed);
 
         dummyMovies.add(movie);
 
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("21 November 2018");
         movie.setMovieGenre("Drama");
         movie.setMovieRating(7.8f);
-        movie.setImgResource(R.drawable.poster_creed);
+        movie.setImgResource(R.drawable.mv_crimes);
 
         dummyMovies.add(movie);
 
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("11 December 2018");
         movie.setMovieGenre("Comedy, Action");
         movie.setMovieRating(7.6f);
-        movie.setImgResource(R.drawable.poster_deadpool);
+        movie.setImgResource(R.drawable.mv_glass);
 
         dummyMovies.add(movie);
 
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("3 Januari 2019");
         movie.setMovieGenre("Animation, Family, Adventure");
         movie.setMovieRating(8.0f);
-        movie.setImgResource(R.drawable.poster_dragon);
+        movie.setImgResource(R.drawable.mv_how_to_train);
 
         dummyMovies.add(movie);
 
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("4 December 2018");
         movie.setMovieGenre("Action, Animation, Comedy, Fantasy, Adventure, Science Fiction");
         movie.setMovieRating(8.0f);
-        movie.setImgResource(R.drawable.poster_dragonball);
+        movie.setImgResource(R.drawable.mv_infinity_war);
 
         dummyMovies.add(movie);
 
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("16 Januari 2019");
         movie.setMovieGenre("Thriller, Drama, Science Fiction");
         movie.setMovieRating(6.8f);
-        movie.setImgResource(R.drawable.poster_glass);
+        movie.setImgResource(R.drawable.mv_marry_queen);
 
         dummyMovies.add(movie);
 
@@ -195,98 +195,98 @@ public class MainActivity extends AppCompatActivity {
         movie.setMovieRelease("19 October 2018");
         movie.setMovieGenre("Action, Thriller");
         movie.setMovieRating(6.6f);
-        movie.setImgResource(R.drawable.poster_hunterkiller);
+        movie.setImgResource(R.drawable.mv_master_z);
 
         dummyMovies.add(movie);
 
-        //Movie 3 :
+        //Movie 12 :
         movie = new Movie();
         movie.setMovieName("Mary Poppins Return");
         movie.setMovieDescription("In Depression-era London, a now-grown Jane and Michael Banks, along with Michael's three children, are visited by the enigmatic Mary Poppins following a personal loss. Through her unique magical skills, and with the aid of her friend Jack, she helps the family rediscover the joy and wonder missing in their lives.");
         movie.setMovieRelease("13 December 2018");
         movie.setMovieGenre("Fantasy, Family, Comedy");
         movie.setMovieRating(6.9f);
-        movie.setImgResource(R.drawable.poster_marrypopins);
+        movie.setImgResource(R.drawable.mv_mortal_engines);
 
         dummyMovies.add(movie);
 
-        //Movie 12 :
+        //Movie 13 :
         movie = new Movie();
         movie.setMovieName("Mortal Engines");
         movie.setMovieDescription("Many thousands of years in the future, Earth’s cities roam the globe on huge wheels, devouring each other in a struggle for ever diminishing resources. On one of these massive traction cities, the old London, Tom Natsworthy has an unexpected encounter with a mysterious young woman from the wastelands who will change the course of his life forever.");
         movie.setMovieRelease("27 November 2018");
         movie.setMovieGenre("Adventure, Fantasy");
         movie.setMovieRating(6.1f);
-        movie.setImgResource(R.drawable.poster_mortalengine);
+        movie.setImgResource(R.drawable.mv_overlord);
 
         dummyMovies.add(movie);
 
-        //Movie 13 :
+        //Movie 14 :
         movie = new Movie();
         movie.setMovieName("Preman Pensiun The Movie");
         movie.setMovieDescription("We don\\'t have an overview translated in English. Help us expand our database by adding one.");
         movie.setMovieRelease("17 Januari 2019");
         movie.setMovieGenre("Comedy, Drama");
         movie.setMovieRating(8.0f);
-        movie.setImgResource(R.drawable.poster_preman);
+        movie.setImgResource(R.drawable.mv_ralph);
 
         dummyMovies.add(movie);
 
-        //Movie 14 :
+        //Movie 15 :
         movie = new Movie();
         movie.setMovieName("Robin Hood");
         movie.setMovieDescription("A war-hardened Crusader and his Moorish commander mount an audacious revolt against the corrupt English crown.");
         movie.setMovieRelease("20 November 2018");
         movie.setMovieGenre("Action, Adventure, Thriller");
         movie.setMovieRating(5.3f);
-        movie.setImgResource(R.drawable.poster_robinhood);
+        movie.setImgResource(R.drawable.mv_robin_hood);
 
         dummyMovies.add(movie);
 
-        //Movie 15 :
+        //Movie 16 :
         movie = new Movie();
         movie.setMovieName("Spiderman :Into The Spider-Verse");
         movie.setMovieDescription("Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson \"Kingpin\" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.");
         movie.setMovieRelease("6 December 2018");
         movie.setMovieGenre("Action, Adventure, Animation, Science Fiction, Comedy");
         movie.setMovieRating(8.5f);
-        movie.setImgResource(R.drawable.poster_spiderman);
+        movie.setImgResource(R.drawable.mv_serenity);
 
         dummyMovies.add(movie);
 
-        //Movie 16 :
+        //Movie 17 :
         movie = new Movie();
         movie.setMovieName("The Girl In The Spider Web");
         movie.setMovieDescription("In Stockholm, Sweden, hacker Lisbeth Salander is hired by Frans Balder, a computer engineer, to retrieve a program that he believes it is too dangerous to exist.");
         movie.setMovieRelease("25 October 2018");
         movie.setMovieGenre("Action, Crime, Thriller");
         movie.setMovieRating(6.1f);
-        movie.setImgResource(R.drawable.poster_thegirl);
+        movie.setImgResource(R.drawable.mv_spiderman);
 
         dummyMovies.add(movie);
 
-        //Movie 17 :
+        //Movie 18 :
         movie = new Movie();
         movie.setMovieName("The Mule");
         movie.setMovieDescription("Earl Stone, a man in his 80s, is broke, alone, and facing foreclosure of his business when he is offered a job that simply requires him to drive. Easy enough, but, unbeknownst to Earl, he’s just signed on as a drug courier for a Mexican cartel. He does so well that his cargo increases exponentially, and Earl hit the radar of hard-charging DEA agent Colin Bates.");
         movie.setMovieRelease("14 December 2018");
         movie.setMovieGenre("Crime, Drama, Thriller");
         movie.setMovieRating(7.1f);
-        movie.setImgResource(R.drawable.poster_themule);
+        movie.setImgResource(R.drawable.mv_t34);
 
         dummyMovies.add(movie);
 
-        //Movie 18 :
-        movie = new Movie();
-        movie.setMovieName("Venom");
-        movie.setMovieDescription("Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.");
-        movie.setMovieRelease("28 September 2018");
-        movie.setMovieGenre("Action, Comedy");
-        movie.setMovieRating(6.7f);
-        movie.setImgResource(R.drawable.poster_venom);
-
-        dummyMovies.add(movie);
-        //dan seterusnya
+        //Movie 19 :
+//        movie = new Movie();
+//        movie.setMovieName("Venom");
+//        movie.setMovieDescription("Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.");
+//        movie.setMovieRelease("28 September 2018");
+//        movie.setMovieGenre("Action, Comedy");
+//        movie.setMovieRating(6.7f);
+//        movie.setImgResource(R.drawable.mv_venom);
+//
+//        dummyMovies.add(movie);
+//        //dan seterusnya
 
         return dummyMovies;
     }
