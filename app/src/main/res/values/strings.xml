@@ -14,6 +14,8 @@
     <string name="poster_film">Movie Poster</string>
     <string name="overview_film">Overview</string>
     <string name="change_language_settings" tools:keep="@string/change_language_settings">Change Language Setting</string>
+    <string name="hello_blank_fragment" tools:keep="@string/hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_poster_movie">Image Poster Movie</string>
 
     <string-array name="data_movie_name">
         <item>A Star is Born</item>
@@ -87,7 +89,7 @@
         <item>Action, Adventure, Fantasy</item>
         <item>Drama, Music</item>
         <item>Action, Drama, Crime, Thriller</item>
-        <item>Draman</item>
+        <item>Drama</item>
         <item>Adventure</item>
         <item>Thriller, Drama, Science Fiction</item>
         <item>Animation, Family, Adventure</item>
@@ -288,9 +290,5 @@
     <string name="title_activity_main_tabbed">Submission Movie</string>
     <string name="tab_text_1">MOVIES</string>
     <string name="tab_text_2">TV SHOWS</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" tools:keep="@string/hello_blank_fragment">Hello blank fragment</string>
-    <string name="image_poster_movie">Image Poster Movie</string>
 
 </resources>
