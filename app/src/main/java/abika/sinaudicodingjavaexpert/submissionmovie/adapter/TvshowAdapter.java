@@ -2,7 +2,6 @@ package abika.sinaudicodingjavaexpert.submissionmovie.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
 import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
-import abika.sinaudicodingjavaexpert.submissionmovie.model.TvShow;
 import abika.sinaudicodingjavaexpert.submissionmovie.ui.DetailActivity;
 
 public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryViewHolder> {
@@ -49,7 +47,6 @@ public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryVi
     public void onBindViewHolder(@NonNull final CategoryViewHolder categoryViewHolder, final int position) {
         categoryViewHolder.txtTvshowName.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieName());
         categoryViewHolder.txtTvshowDescription.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieDescription());
-//        categoryViewHolder.txtMovieRelease.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRelease());
         categoryViewHolder.txtTvshowGenre.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieGenre());
         categoryViewHolder.txtTvshowRating.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
 
@@ -59,26 +56,9 @@ public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryVi
                 .apply(new RequestOptions())
                 .into(categoryViewHolder.imgTvshowPoster);
 
-
-//        float backgroundRating = Float.parseFloat(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
-
-//        if (backgroundRating >= 8.0) {
-//            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#3498db"));
-//        } else if (backgroundRating >= 7.0) {
-//            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#2ecc71"));
-//        } else if (backgroundRating >= 6.0) {
-//            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#f1c40f"));
-//        } else if (backgroundRating >= 5.0) {
-//            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#e67e22"));
-//        } else {
-//            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#e74c3c"));
-//        }
-
         categoryViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(context, "Kamu Memilih "+  getListTvshow().get(position).getTvshowName(), Toast.LENGTH_SHORT).show();
-
                 Movie tvshow = new Movie();
                 tvshow.setMovieName(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieName());
                 tvshow.setMovieRating(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
@@ -88,7 +68,7 @@ public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryVi
                 tvshow.setImgResource(getListMovie().get(categoryViewHolder.getAdapterPosition()).getImgResource());
 
                 Intent moveIntent = new Intent(context, DetailActivity.class);
-                moveIntent.putExtra(DetailActivity.EXTRA_TVSHOW, tvshow);
+                moveIntent.putExtra(DetailActivity.EXTRA_MOVIE, tvshow);
                 context.startActivity(moveIntent);
             }
         });

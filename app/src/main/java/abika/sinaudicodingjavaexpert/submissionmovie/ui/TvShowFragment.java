@@ -17,9 +17,7 @@ import java.util.ArrayList;
 
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
 import abika.sinaudicodingjavaexpert.submissionmovie.adapter.MovieAdapter;
-import abika.sinaudicodingjavaexpert.submissionmovie.adapter.TvshowAdapter;
 import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
-import abika.sinaudicodingjavaexpert.submissionmovie.model.TvShow;
 
 /**
  * A simple {@link Fragment} subclass.
