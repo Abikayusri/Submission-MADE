@@ -2,6 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="#558F8DBF"
     android:padding="10dp">
 
     <ImageView
@@ -35,7 +38,7 @@
             android:layout_height="wrap_content"
             android:text="@string/genre_filmnya"
             android:textSize="16sp"
-            android:textColor="@color/Gray" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/tv_item_rating"
@@ -50,13 +53,16 @@
 
         <TextView
             android:id="@+id/tv_item_desc"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="3dp"
-            android:paddingEnd="3dp"
-            android:textSize="18sp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/titillium_web"
+            android:maxLines="4"
             android:text="@string/deskripsi_filmnya"
-            />
+            android:textColor="@color/colorPrimaryLightest"
+            android:textSize="14sp" />
 
     </LinearLayout>
 </RelativeLayout>

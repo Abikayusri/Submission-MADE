@@ -18,23 +18,24 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
+import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
 import abika.sinaudicodingjavaexpert.submissionmovie.model.TvShow;
 import abika.sinaudicodingjavaexpert.submissionmovie.ui.DetailActivity;
 
 public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryViewHolder> {
     private final Context context;
-    private ArrayList<TvShow> listTvshow;
+    private ArrayList<Movie> listMovie;
 
     public TvshowAdapter(Context context) {
         this.context = context;
     }
 
-    private ArrayList<TvShow> getListTvshow() {
-        return listTvshow;
+    private ArrayList<Movie> getListMovie() {
+        return listMovie;
     }
 
-    public void setListTvshow(ArrayList<TvShow> listTvshow) {
-        this.listTvshow = listTvshow;
+    public void setListTvshow(ArrayList<Movie> listMovie) {
+        this.listMovie = listMovie;
     }
 
     @NonNull
@@ -46,20 +47,20 @@ public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryVi
 
     @Override
     public void onBindViewHolder(@NonNull final CategoryViewHolder categoryViewHolder, final int position) {
-        categoryViewHolder.txtTvshowName.setText(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowName());
-        categoryViewHolder.txtTvshowDescription.setText(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowDescription());
-//        categoryViewHolder.txtTvshowRelease.setText(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowRelease());
-        categoryViewHolder.txtTvshowGenre.setText(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowGenre());
-        categoryViewHolder.txtTvshowRating.setText(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowRating());
+        categoryViewHolder.txtTvshowName.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieName());
+        categoryViewHolder.txtTvshowDescription.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieDescription());
+//        categoryViewHolder.txtMovieRelease.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRelease());
+        categoryViewHolder.txtTvshowGenre.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieGenre());
+        categoryViewHolder.txtTvshowRating.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
 
         categoryViewHolder.getAdapterPosition();
         Glide.with(context)
-                .load(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getImgResource())
+                .load(getListMovie().get(categoryViewHolder.getAdapterPosition()).getImgResource())
                 .apply(new RequestOptions())
                 .into(categoryViewHolder.imgTvshowPoster);
 
 
-        float backgroundRating = Float.parseFloat(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowRating());
+        float backgroundRating = Float.parseFloat(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
 
         if (backgroundRating >= 8.0) {
             categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#3498db"));
@@ -78,13 +79,13 @@ public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryVi
             public void onClick(View v) {
                 //Toast.makeText(context, "Kamu Memilih "+  getListTvshow().get(position).getTvshowName(), Toast.LENGTH_SHORT).show();
 
-                TvShow tvshow = new TvShow();
-                tvshow.setTvshowName(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowName());
-                tvshow.setTvshowRating(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowRating());
-                tvshow.setTvshowGenre(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowGenre());
-                tvshow.setTvshowDescription(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowDescription());
-                tvshow.setTvshowRelease(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getTvshowRelease());
-                tvshow.setImgResource(getListTvshow().get(categoryViewHolder.getAdapterPosition()).getImgResource());
+                Movie tvshow = new Movie();
+                tvshow.setMovieName(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieName());
+                tvshow.setMovieRating(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
+                tvshow.setMovieGenre(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieGenre());
+                tvshow.setMovieDescription(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieDescription());
+                tvshow.setMovieRelease(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRelease());
+                tvshow.setImgResource(getListMovie().get(categoryViewHolder.getAdapterPosition()).getImgResource());
 
                 Intent moveIntent = new Intent(context, DetailActivity.class);
                 moveIntent.putExtra(DetailActivity.EXTRA_TVSHOW, tvshow);
@@ -95,7 +96,7 @@ public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryVi
 
     @Override
     public int getItemCount() {
-        return getListTvshow().size();
+        return getListMovie().size();
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder {

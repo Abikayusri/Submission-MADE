@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
 import abika.sinaudicodingjavaexpert.submissionmovie.adapter.MovieAdapter;
 import abika.sinaudicodingjavaexpert.submissionmovie.adapter.TvshowAdapter;
+import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
 import abika.sinaudicodingjavaexpert.submissionmovie.model.TvShow;
 
 /**
@@ -34,7 +35,7 @@ public class TvShowFragment extends Fragment {
     private TypedArray dataTvPoster;
 
     private RecyclerView rvCategory;
-    private final ArrayList<TvShow> list = new ArrayList<>();
+    private final ArrayList<Movie> list = new ArrayList<>();
 
     public TvShowFragment() {
         // Required empty public constructor
@@ -58,19 +59,19 @@ public class TvShowFragment extends Fragment {
 
 
     private void addItem() {
-        ArrayList<TvShow> tvShows = new ArrayList<>();
+        ArrayList<Movie> movies = new ArrayList<>();
         for (int i = 0; i < dataTvName.length; i++) {
-            TvShow tvshow = new TvShow();
-            tvshow.setImgResource(dataTvPoster.getResourceId(i, -1));
-            tvshow.setTvshowName(dataTvName[i]);
-            tvshow.setTvshowDescription(dataTvDescription[i]);
-            tvshow.setTvshowRelease(dataTvRelease[i]);
-            tvshow.setTvshowRating(dataTvRate[i]);
-            tvshow.setTvshowGenre(dataTvGenre[i]);
+            Movie movie = new Movie();
+            movie.setImgResource(dataTvPoster.getResourceId(i, -1));
+            movie.setMovieName(dataTvName[i]);
+            movie.setMovieDescription(dataTvDescription[i]);
+            movie.setMovieRelease(dataTvRelease[i]);
+            movie.setMovieRating(dataTvRate[i]);
+            movie.setMovieGenre(dataTvGenre[i]);
 
-            tvShows.add(tvshow);
+            movies.add(movie);
         }
-        list.addAll(tvShows);
+        list.addAll(movies);
     }
 
     private void prepare() {
@@ -84,8 +85,8 @@ public class TvShowFragment extends Fragment {
 
     private void showRecycleList(){
         rvCategory.setLayoutManager(new LinearLayoutManager(getActivity()));
-        TvshowAdapter tvshowAdapter = new TvshowAdapter(getActivity());
-        tvshowAdapter.setListTvshow(list);
-        rvCategory.setAdapter(tvshowAdapter);
+        MovieAdapter movieAdapter = new MovieAdapter(getActivity());
+        movieAdapter.setListMovie(list);
+        rvCategory.setAdapter(movieAdapter);
     }
 }

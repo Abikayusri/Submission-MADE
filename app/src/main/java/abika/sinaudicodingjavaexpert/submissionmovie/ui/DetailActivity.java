@@ -21,6 +21,7 @@ import java.util.Objects;
 
 import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
+import abika.sinaudicodingjavaexpert.submissionmovie.model.TvShow;
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class DetailActivity extends AppCompatActivity {
@@ -49,43 +50,52 @@ public class DetailActivity extends AppCompatActivity {
         TextView tvMovieCat = findViewById(R.id.txt_movie_cat);
         TextView tvMovieDesc = findViewById(R.id.txt_movie_desc);
         ImageView imgMoviePoster = findViewById(R.id.img_poster_movie);
-        bgMovieDetail = findViewById(R.id.bg_movie_detail);
+//        bgMovieDetail = findViewById(R.id.bg_movie_detail);
 
         final Movie movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
+        final TvShow tvshow = getIntent().getParcelableExtra(EXTRA_TVSHOW);
+
 
         tvMovieName.setText(movie.getMovieName());
         tvMovieRate.setText(movie.getMovieRating());
         tvMovieCat.setText(movie.getMovieGenre());
         tvMovieDesc.setText(movie.getMovieDescription());
-
         Glide.with(this).load(movie.getImgResource()).into(imgMoviePoster);
 
-        //noinspection deprecation
-        Glide.with(this).load(movie.getImgResource())
-                .apply(RequestOptions.bitmapTransform(new BlurTransformation(15, 3)))
-                .into(new SimpleTarget<Drawable>() {
-                    @Override
-                    public void onResourceReady(@NonNull Drawable resource, Transition<? super Drawable> transition) {
-                        bgMovieDetail.setBackground(resource);
-                    }
-                });
+        float ratingMovie = Float.parseFloat(movie.getMovieRating());
 
-        float backgroundRating = Float.parseFloat(movie.getMovieRating());
-
-        if (backgroundRating>=8.0){
+        if (ratingMovie>=8.0){
             tvMovieRate.setTextColor(Color.parseColor("#3498db"));
-        } else if (backgroundRating>=7.0){
+        } else if (ratingMovie>=7.0){
             tvMovieRate.setTextColor(Color.parseColor("#2ecc71"));
-        } else if (backgroundRating>=6.0){
+        } else if (ratingMovie>=6.0){
             tvMovieRate.setTextColor(Color.parseColor("#f1c40f"));
-        } else if (backgroundRating>=5.0){
+        } else if (ratingMovie>=5.0){
             tvMovieRate.setTextColor(Color.parseColor("#e67e22"));
         } else {
             tvMovieRate.setTextColor(Color.parseColor("#e74c3c"));
         }
 
 
-
+//        tvMovieName.setText(tvshow.getTvshowName());
+//        tvMovieRate.setText(tvshow.getTvshowRating());
+//        tvMovieCat.setText(tvshow.getTvshowGenre());
+//        tvMovieDesc.setText(tvshow.getTvshowDescription());
+//        Glide.with(this).load(tvshow.getImgResource()).into(imgMoviePoster);
+//
+//        float ratingTvshow = Float.parseFloat(tvshow.getTvshowRating());
+//
+//        if (ratingTvshow>=8.0){
+//            tvMovieRate.setTextColor(Color.parseColor("#3498db"));
+//        } else if (ratingTvshow>=7.0){
+//            tvMovieRate.setTextColor(Color.parseColor("#2ecc71"));
+//        } else if (ratingTvshow>=6.0){
+//            tvMovieRate.setTextColor(Color.parseColor("#f1c40f"));
+//        } else if (ratingTvshow>=5.0){
+//            tvMovieRate.setTextColor(Color.parseColor("#e67e22"));
+//        } else {
+//            tvMovieRate.setTextColor(Color.parseColor("#e74c3c"));
+//        }
     }
 
     private void setActionBarTitle(){
