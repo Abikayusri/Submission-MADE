@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-    android:background="#558F8DBF"
+    android:layout_marginBottom="1dp"
+    android:background="@drawable/bg_rounded_purple"
     android:padding="10dp">
 
     <ImageView
@@ -28,7 +28,8 @@
             android:id="@+id/tv_item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nama_filmnya"
+            android:text="@string/judul_filmnya"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -55,8 +56,7 @@
             android:id="@+id/tv_item_desc"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:ellipsize="end"
             android:fontFamily="@font/titillium_web"
             android:maxLines="4"

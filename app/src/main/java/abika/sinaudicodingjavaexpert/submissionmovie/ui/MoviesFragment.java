@@ -40,7 +40,7 @@ public class MoviesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_movies, container, false);
-        rvCategory = v.findViewById(R.id.lv_list_movie);
+        rvCategory = v.findViewById(R.id.rv_list_movie);
         rvCategory.setHasFixedSize(true);
 
         prepare();
