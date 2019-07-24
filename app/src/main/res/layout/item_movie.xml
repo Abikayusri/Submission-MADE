@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:layout_marginBottom="25dp"
-    android:layout_marginTop="25dp"
-    android:background="@drawable/bg_item_white"
-    android:padding="16dp">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="#558F8DBF"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/iv_item_photo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="140dp"
+        android:layout_height="210dp"
+        android:scaleType="fitXY"
         android:src="@drawable/placeholder"
-        android:background="@drawable/bg_rounded_photo" />
+        android:background="@drawable/placeholder"
+        android:contentDescription="@string/image_poster_movie" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +38,7 @@
             android:layout_height="wrap_content"
             android:text="@string/genre_filmnya"
             android:textSize="16sp"
-            android:textColor="@color/Gray" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/tv_item_rating"
@@ -48,5 +50,19 @@
             android:textSize="18sp"
             android:text="@string/rating_filmnya"
             android:background="@drawable/bg_rounded_orange"/>
+
+        <TextView
+            android:id="@+id/tv_item_desc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/titillium_web"
+            android:maxLines="4"
+            android:text="@string/deskripsi_filmnya"
+            android:textColor="@color/colorPrimaryLightest"
+            android:textSize="14sp" />
+
     </LinearLayout>
 </RelativeLayout>
