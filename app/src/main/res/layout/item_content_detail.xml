@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/txt_title_and_rate"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,6 +12,7 @@
         android:id="@+id/iv_detail_poster"
         android:layout_width="140dp"
         android:layout_height="210dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/shadow_poster"
         android:contentDescription="@string/poster_film"
@@ -22,27 +24,50 @@
         app:layout_constraintVertical_bias="0.347" />
 
     <TextView
+        android:id="@+id/tv_detail_rate_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_detail_rate"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@id/iv_detail_poster"
+        android:ellipsize="end"
+        android:fontFamily="@font/titillium_web"
+        android:maxLines="1"
+        android:text="@string/rating_film"
+        android:textColor="@color/colorPrimaryLightest"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/iv_detail_poster"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/tv_detail_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
         android:layout_marginBottom="8dp"
         android:layout_toEndOf="@id/iv_detail_poster"
+        android:background="@drawable/bg_rounded_orange"
         android:fontFamily="@font/titillium_web_semi_bold"
+        android:padding="8dp"
         android:shadowColor="#7F000000"
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="3"
-        android:background="@drawable/bg_rounded_orange"
         android:text="@string/rating_filmnya"
         android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:typeface="monospace"
         app:layout_constraintBottom_toTopOf="@+id/tv_detail_release_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iv_detail_poster"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_rate_title" />
 
     <TextView
         android:id="@+id/tv_detail_release_title"
@@ -50,7 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_detail_rate"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:layout_toEndOf="@id/iv_detail_poster"
         android:ellipsize="end"
         android:fontFamily="@font/titillium_web"
@@ -58,6 +84,9 @@
         android:text="@string/release_film"
         android:textColor="@color/colorPrimaryLightest"
         android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iv_detail_poster"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_rate" />
 
@@ -67,6 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_detail_release_title"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_toEndOf="@id/iv_detail_poster"
         android:ellipsize="end"
         android:fontFamily="@font/titillium_web"
@@ -74,6 +104,8 @@
         android:text="@string/release_filmnya"
         android:textColor="@color/colorPrimaryLightest"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iv_detail_poster"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_release_title" />
 
@@ -83,7 +115,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_detail_release"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:layout_toEndOf="@id/iv_detail_poster"
         android:ellipsize="end"
         android:fontFamily="@font/titillium_web"
@@ -91,6 +124,9 @@
         android:text="@string/genre_film"
         android:textColor="@color/colorPrimaryLightest"
         android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iv_detail_poster"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_release" />
 
@@ -100,6 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_detail_genre_title"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_toEndOf="@id/iv_detail_poster"
         android:ellipsize="end"
         android:fontFamily="@font/titillium_web"
@@ -107,6 +144,8 @@
         android:text="@string/genre_filmnya"
         android:textColor="@color/colorPrimaryLightest"
         android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iv_detail_poster"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_genre_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>

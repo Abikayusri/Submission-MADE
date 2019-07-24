@@ -44,14 +44,13 @@ public class TvShowFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_tvshow, container, false);
-        rvCategory = v.findViewById(R.id.rv_list_tv);
+
+        View v = inflater.inflate(R.layout.fragment_movies, container, false);
+        rvCategory = v.findViewById(R.id.rv_list_movie);
         rvCategory.setHasFixedSize(true);
 
         prepare();
         addItem();
-
         showRecycleList();
 
         return v;
