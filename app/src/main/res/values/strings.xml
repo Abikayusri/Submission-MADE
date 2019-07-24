@@ -1,20 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Submission Movie</string>
-    <string name="judul_film">Judul Film:</string>
-    <string name="release_film">Release Film:</string>
-    <string name="nama_filmnya">Nama Filmnya</string>
-    <string name="deskripsi_filmnya">Deskripsi Filmnya</string>
-    <string name="release_filmnya">Release Filmnya</string>
+    <string name="judul_film">Movie Title:</string>
+    <string name="judul_filmnya">Movie Name</string>
+    <string name="deskripsi_filmnya">Movie Description</string>
+    <string name="release_film">Movie Release:</string>
+    <string name="release_filmnya">Movie Releasenya</string>
     <string name="deskripsi_film">Description</string>
-    <string name="rating_filmnya">Rating Filmnya</string>
-    <string name="rating_film">Rating Film:</string>
-    <string name="genre_filmnya">Genre Filmnya</string>
-
-    <string name="trailer_title">Trailer</string>
-    <string name="overview_title">Overview</string>
-    <string name="this_is_poster">This is for Poster Movie</string>
-    <string name="this_for_background_image">This for Background Image Trailer Link</string>
-    <string name="this_for_button">This for Button Play Trailer Link</string>
+    <string name="rating_filmnya">Movie Rate</string>
+    <string name="rating_film">Movie Rate:</string>
+    <string name="max_rating_film">/10</string>
+    <string name="genre_filmnya">Movie Genre</string>
+    <string name="genre_film">Genre</string>
+    <string name="poster_film">Movie Poster</string>
+    <string name="overview_film">Overview</string>
     <string name="change_language_settings" tools:keep="@string/change_language_settings">Change Language Setting</string>
 
     <string-array name="data_movie_name">
@@ -295,15 +293,4 @@
     <string name="hello_blank_fragment" tools:keep="@string/hello_blank_fragment">Hello blank fragment</string>
     <string name="image_poster_movie">Image Poster Movie</string>
 
-    <string name="max_rating_movie">10</string>
-    <string name="rating_movie">8</string>
-    <string name="movie_feature">Feature</string>
-    <string name="movie_language">Language</string>
-    <string name="movie_language_val">English</string>
-    <string name="movie_production">Production</string>
-    <string name="movie_production_val">Hollywod</string>
-    <string name="movie_genre">Genre</string>
-    <string name="movie_genre_val">Action, Drama, Adventure</string>
-    <string name="movie_overview">Overview</string>
-    <string name="movie_title">Title</string>
 </resources>

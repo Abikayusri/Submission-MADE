@@ -1,32 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">SubmissionMovie</string>
+    <string name="app_name">Submission Movie</string>
     <string name="judul_film">Judul Film:</string>
-    <string name="release_film">Release Film:</string>
-    <string name="nama_filmnya">Nama Filmnya</string>
+    <string name="judul_filmnya">Nama Filmnya</string>
     <string name="deskripsi_filmnya">Deskripsi Filmnya</string>
+    <string name="release_film">Release Film:</string>
     <string name="release_filmnya">Release Filmnya</string>
-    <string name="deskripsi_film">Description</string>
+    <string name="deskripsi_film">Deskripsi</string>
     <string name="rating_filmnya">Rating Filmnya</string>
     <string name="rating_film">Rating Film:</string>
+    <string name="max_rating_film">/10</string>
     <string name="genre_filmnya">Genre Filmnya</string>
-
-
-    <string name="max_rating_movie">10</string>
-    <string name="rating_movie">8</string>
-    <string name="movie_feature">Fitur</string>
-    <string name="movie_language">Bahasa</string>
-    <string name="movie_language_val">Inggris</string>
-    <string name="movie_production">Produksi</string>
-    <string name="movie_production_val">Hollywod</string>
-    <string name="movie_genre">Genre</string>
-    <string name="movie_genre_val">Action, Drama, Adventure</string>
-    <string name="movie_overview">Ikhtisar</string>
-
-    <string name="trailer_title">Trailer</string>
-    <string name="overview_title">Overview</string>
-    <string name="this_is_poster">This is for Poster Movie</string>
-    <string name="this_for_background_image">This for Background Image Trailer Link</string>
-    <string name="this_for_button">This for Button Play Trailer Link</string>
+    <string name="genre_film">Genre</string>
+    <string name="poster_film">Poster Film</string>
+    <string name="overview_film">Ikhtisar</string>
     <string name="change_language_settings" tools:keep="@string/change_language_settings">Change Language Setting</string>
 
     <string-array name="data_movie_name">

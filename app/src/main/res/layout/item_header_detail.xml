@@ -13,7 +13,7 @@
 
 
     <TextView
-        android:id="@+id/txt_movie_name"
+        android:id="@+id/tv_detail_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -23,7 +23,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/titillium_web_bold"
         android:maxLines="3"
-        android:text="@string/nama_filmnya"
+        android:text="@string/judul_filmnya"
         android:textColor="@color/colorPrimaryLightest"
         android:textSize="31sp"
         android:textStyle="bold"
@@ -37,13 +37,13 @@
 
     <include
         android:id="@+id/include_side"
-        layout="@layout/content_detail_movie"
+        layout="@layout/item_content_detail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_movie_name" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

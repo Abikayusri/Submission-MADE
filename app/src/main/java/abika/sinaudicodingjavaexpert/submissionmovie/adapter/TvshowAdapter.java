@@ -60,19 +60,19 @@ public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryVi
                 .into(categoryViewHolder.imgTvshowPoster);
 
 
-        float backgroundRating = Float.parseFloat(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
+//        float backgroundRating = Float.parseFloat(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
 
-        if (backgroundRating >= 8.0) {
-            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#3498db"));
-        } else if (backgroundRating >= 7.0) {
-            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#2ecc71"));
-        } else if (backgroundRating >= 6.0) {
-            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#f1c40f"));
-        } else if (backgroundRating >= 5.0) {
-            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#e67e22"));
-        } else {
-            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#e74c3c"));
-        }
+//        if (backgroundRating >= 8.0) {
+//            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#3498db"));
+//        } else if (backgroundRating >= 7.0) {
+//            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#2ecc71"));
+//        } else if (backgroundRating >= 6.0) {
+//            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#f1c40f"));
+//        } else if (backgroundRating >= 5.0) {
+//            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#e67e22"));
+//        } else {
+//            categoryViewHolder.txtTvshowRating.setBackgroundColor(Color.parseColor("#e74c3c"));
+//        }
 
         categoryViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
