@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 public class Movie implements Parcelable {
     private String movieName, movieDescription, movieRelease, movieGenre;
-    private float movieRating;
+    private String movieRating;
     private int imgResource;
 
 
@@ -17,11 +17,11 @@ public class Movie implements Parcelable {
         this.movieGenre = movieGenre;
     }
 
-    public float getMovieRating() {
+    public String getMovieRating() {
         return movieRating;
     }
 
-    public void setMovieRating(float movieRating) {
+    public void setMovieRating(String movieRating) {
         this.movieRating = movieRating;
     }
 
@@ -68,7 +68,7 @@ public class Movie implements Parcelable {
         dest.writeString(this.movieDescription);
         dest.writeString(this.movieRelease);
         dest.writeString(this.movieGenre);
-        dest.writeFloat(this.movieRating);
+        dest.writeFloat(Float.parseFloat(String.valueOf(this.movieRating)));
         dest.writeInt(this.imgResource);
     }
 
@@ -80,7 +80,7 @@ public class Movie implements Parcelable {
         this.movieDescription = in.readString();
         this.movieRelease = in.readString();
         this.movieGenre = in.readString();
-        this.movieRating = in.readFloat();
+        this.movieRating = String.valueOf(in.readFloat());
         this.imgResource = in.readInt();
     }
 
