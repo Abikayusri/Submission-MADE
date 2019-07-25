@@ -1,14 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Submission Movie</string>
-    <string name="judul_film">Judul Film:</string>
     <string name="judul_filmnya">Nama Filmnya</string>
     <string name="deskripsi_filmnya">Deskripsi Filmnya</string>
     <string name="release_film">Release Film:</string>
     <string name="release_filmnya">Release Filmnya</string>
-    <string name="deskripsi_film">Deskripsi</string>
     <string name="rating_filmnya">Rating Filmnya</string>
     <string name="rating_film">Rating Film:</string>
-    <string name="max_rating_film">/10</string>
     <string name="genre_filmnya">Genre Filmnya</string>
     <string name="genre_film">Genre</string>
     <string name="poster_film">Poster Film</string>
@@ -325,7 +322,6 @@
         <item>@drawable/tv_the_walking_dead</item>
     </string-array>
 
-    <string name="title_activity_main_tabbed">Submission Movie</string>
     <string name="tab_text_1">MOVIES</string>
     <string name="tab_text_2">TV SHOWS</string>
 </resources>
