@@ -2,7 +2,6 @@ package abika.sinaudicodingjavaexpert.submissionmovie.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
 import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
-import abika.sinaudicodingjavaexpert.submissionmovie.ui.DetailActivity;
+import abika.sinaudicodingjavaexpert.submissionmovie.ui.main.DetailActivity;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.CategoryViewHolder> {
 
@@ -58,21 +57,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.CategoryView
                 .load(getListMovie().get(categoryViewHolder.getAdapterPosition()).getImgResource())
                 .apply(new RequestOptions())
                 .into(categoryViewHolder.imgMoviePoster);
-
-
-//        float backgroundRating = Float.parseFloat(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
-//
-//        if (backgroundRating >= 8.0) {
-//            categoryViewHolder.txtMovieRating.setBackgroundColor(Color.parseColor("#3498db"));
-//        } else if (backgroundRating >= 7.0) {
-//            categoryViewHolder.txtMovieRating.setBackgroundColor(Color.parseColor("#2ecc71"));
-//        } else if (backgroundRating >= 6.0) {
-//            categoryViewHolder.txtMovieRating.setBackgroundColor(Color.parseColor("#f1c40f"));
-//        } else if (backgroundRating >= 5.0) {
-//            categoryViewHolder.txtMovieRating.setBackgroundColor(Color.parseColor("#e67e22"));
-//        } else {
-//            categoryViewHolder.txtMovieRating.setBackgroundColor(Color.parseColor("#e74c3c"));
-//        }
 
         categoryViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

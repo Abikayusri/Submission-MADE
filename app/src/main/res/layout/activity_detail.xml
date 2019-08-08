@@ -5,7 +5,7 @@
     android:background="@drawable/ui_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DetailActivity"
+    tools:context=".ui.main.DetailActivity"
     tools:ignore="Overdraw">
 
     <androidx.constraintlayout.widget.ConstraintLayout

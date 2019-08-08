@@ -16,6 +16,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        buildTypes.each {
+            it.buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/3/movie/popular?api_key="'
+            it.buildConfigField 'String', 'API_KEY', '"8c79c4bffb6ca736af4e8d97f77ca61f"'
+            it.buildConfigField 'String', 'URL_POSTER', '"https://image.tmdb.org/t/p/w780"'
+        }
     }
 
     compileOptions {
@@ -57,5 +62,14 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constrainLayoutVersion"
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'jp.wasabeef:glide-transformations:4.0.0'
-    implementation 'com.google.android.material:material:1.1.0-alpha08'
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
+
+    // Network
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.1'
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
 }

@@ -18,6 +18,12 @@ buildscript {
         // Test
         junitVersion = "4.12"
         testRunnerVersion = "1.2.0"
+
+        // Network
+        retrofitVersion = "2.6.1"
+
+        // ViewModel
+        lifecycleVersion = "2.0.0"
     }
     repositories {
         google()

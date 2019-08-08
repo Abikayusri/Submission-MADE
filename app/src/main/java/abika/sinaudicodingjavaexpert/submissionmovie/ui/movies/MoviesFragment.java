@@ -1,4 +1,4 @@
-package abika.sinaudicodingjavaexpert.submissionmovie.ui;
+package abika.sinaudicodingjavaexpert.submissionmovie.ui.movies;
 
 
 import android.content.res.TypedArray;
@@ -8,47 +8,44 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
-
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
-import abika.sinaudicodingjavaexpert.submissionmovie.adapter.MovieAdapter;
 import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
+import abika.sinaudicodingjavaexpert.submissionmovie.adapter.MovieAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TvShowFragment extends Fragment {
+public class MoviesFragment extends Fragment {
 
-
-    private String[] dataTvName;
-    private String[] dataTvDescription;
-    private String[] dataTvRelease;
-    private String[] dataTvRate;
-    private String[] dataTvGenre;
-    private TypedArray dataTvPoster;
+    private String[] dataMovieName;
+    private String[] dataMovieDescription;
+    private String[] dataMovieRelease;
+    private String[] dataMovieRate;
+    private String[] dataMovieGenre;
+    private TypedArray dataMoviePoster;
 
     private RecyclerView rvCategory;
     private final ArrayList<Movie> list = new ArrayList<>();
 
-    public TvShowFragment() {
+    public MoviesFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_movies, container, false);
         rvCategory = v.findViewById(R.id.rv_list_movie);
         rvCategory.setHasFixedSize(true);
 
         prepare();
         addItem();
+
         showRecycleList();
 
         return v;
@@ -57,14 +54,14 @@ public class TvShowFragment extends Fragment {
 
     private void addItem() {
         ArrayList<Movie> movies = new ArrayList<>();
-        for (int i = 0; i < dataTvName.length; i++) {
+        for (int i = 0; i < dataMovieName.length; i++) {
             Movie movie = new Movie();
-            movie.setImgResource(dataTvPoster.getResourceId(i, -1));
-            movie.setMovieName(dataTvName[i]);
-            movie.setMovieDescription(dataTvDescription[i]);
-            movie.setMovieRelease(dataTvRelease[i]);
-            movie.setMovieRating(dataTvRate[i]);
-            movie.setMovieGenre(dataTvGenre[i]);
+            movie.setImgResource(dataMoviePoster.getResourceId(i, -1));
+            movie.setMovieName(dataMovieName[i]);
+            movie.setMovieDescription(dataMovieDescription[i]);
+            movie.setMovieRelease(dataMovieRelease[i]);
+            movie.setMovieRating(dataMovieRate[i]);
+            movie.setMovieGenre(dataMovieGenre[i]);
 
             movies.add(movie);
         }
@@ -72,12 +69,12 @@ public class TvShowFragment extends Fragment {
     }
 
     private void prepare() {
-        dataTvName = getResources().getStringArray(R.array.data_tv_name);
-        dataTvRate = getResources().getStringArray(R.array.data_tv_rating);
-        dataTvGenre = getResources().getStringArray(R.array.data_tv_genre);
-        dataTvRelease = getResources().getStringArray(R.array.data_tv_release);
-        dataTvDescription = getResources().getStringArray(R.array.data_tv_desc);
-        dataTvPoster = getResources().obtainTypedArray(R.array.data_tv_poster);
+        dataMovieName = getResources().getStringArray(R.array.data_movie_name);
+        dataMovieRate = getResources().getStringArray(R.array.data_movie_rating);
+        dataMovieGenre = getResources().getStringArray(R.array.data_movie_genre);
+        dataMovieRelease = getResources().getStringArray(R.array.data_movie_release);
+        dataMovieDescription = getResources().getStringArray(R.array.data_movie_desc);
+        dataMoviePoster = getResources().obtainTypedArray(R.array.data_movie_poster);
     }
 
     private void showRecycleList(){
@@ -87,3 +84,4 @@ public class TvShowFragment extends Fragment {
         rvCategory.setAdapter(movieAdapter);
     }
 }
+

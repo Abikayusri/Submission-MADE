@@ -2,7 +2,6 @@ package abika.sinaudicodingjavaexpert.submissionmovie.adapter;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
@@ -10,8 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
-import abika.sinaudicodingjavaexpert.submissionmovie.ui.MoviesFragment;
-import abika.sinaudicodingjavaexpert.submissionmovie.ui.TvShowFragment;
+import abika.sinaudicodingjavaexpert.submissionmovie.ui.movies.MoviesFragment;
+import abika.sinaudicodingjavaexpert.submissionmovie.ui.tvshow.TvShowFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
     @StringRes

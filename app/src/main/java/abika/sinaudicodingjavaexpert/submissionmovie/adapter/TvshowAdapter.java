@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
 import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
-import abika.sinaudicodingjavaexpert.submissionmovie.ui.DetailActivity;
+import abika.sinaudicodingjavaexpert.submissionmovie.ui.main.DetailActivity;
 
 public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryViewHolder> {
     private final Context context;

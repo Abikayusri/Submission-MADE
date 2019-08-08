@@ -1,4 +1,4 @@
-package abika.sinaudicodingjavaexpert.submissionmovie.ui;
+package abika.sinaudicodingjavaexpert.submissionmovie.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 

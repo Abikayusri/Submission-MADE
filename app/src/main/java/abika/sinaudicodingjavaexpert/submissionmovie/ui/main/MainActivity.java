@@ -1,4 +1,4 @@
-package abika.sinaudicodingjavaexpert.submissionmovie.ui;
+package abika.sinaudicodingjavaexpert.submissionmovie.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
