@@ -46,15 +46,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.CategoryView
 
     @Override
     public void onBindViewHolder(@NonNull final CategoryViewHolder categoryViewHolder, final int position) {
+        String poster = "https://image.tmdb.org/t/p/w500" + listMovie.get(position).getMoviePoster();
         categoryViewHolder.txtMovieName.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieName());
-        categoryViewHolder.txtMovieDescription.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieDescription());
+        categoryViewHolder.txtMovieDescription.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieOverview());
 //        categoryViewHolder.txtMovieRelease.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRelease());
         categoryViewHolder.txtMovieGenre.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieGenre());
         categoryViewHolder.txtMovieRating.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
-
         categoryViewHolder.getAdapterPosition();
         Glide.with(context)
-                .load(getListMovie().get(categoryViewHolder.getAdapterPosition()).getImgResource())
+                .load(poster)
                 .apply(new RequestOptions())
                 .into(categoryViewHolder.imgMoviePoster);
 
@@ -67,13 +67,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.CategoryView
                 movie.setMovieName(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieName());
                 movie.setMovieRating(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
                 movie.setMovieGenre(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieGenre());
-                movie.setMovieDescription(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieDescription());
+                movie.setMovieOverview(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieOverview());
                 movie.setMovieRelease(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRelease());
-                movie.setImgResource(getListMovie().get(categoryViewHolder.getAdapterPosition()).getImgResource());
+                movie.setMoviePoster(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMoviePoster());
 
-                Intent moveIntent = new Intent(context, DetailActivity.class);
-                moveIntent.putExtra(DetailActivity.EXTRA_MOVIE, movie);
-                context.startActivity(moveIntent);
+                Intent detailIntent = new Intent(context, DetailActivity.class);
+                detailIntent.putExtra(DetailActivity.EXTRA_MOVIE, movie);
+                context.startActivity(detailIntent);
             }
         });
     }

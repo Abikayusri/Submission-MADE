@@ -67,9 +67,9 @@ public class TvshowAdapter extends RecyclerView.Adapter<TvshowAdapter.CategoryVi
                 tvshow.setMovieRelease(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRelease());
                 tvshow.setImgResource(getListMovie().get(categoryViewHolder.getAdapterPosition()).getImgResource());
 
-                Intent moveIntent = new Intent(context, DetailActivity.class);
-                moveIntent.putExtra(DetailActivity.EXTRA_MOVIE, tvshow);
-                context.startActivity(moveIntent);
+                Intent detailIntent = new Intent(context, DetailActivity.class);
+                detailIntent.putExtra(DetailActivity.EXTRA_MOVIE, tvshow);
+                context.startActivity(detailIntent);
             }
         });
     }

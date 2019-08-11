@@ -5,19 +5,13 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
-
 import abika.sinaudicodingjavaexpert.submissionmovie.adapter.PagerAdapter;
-import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
 
 public class MainActivity extends AppCompatActivity {
