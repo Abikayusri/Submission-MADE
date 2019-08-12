@@ -3,13 +3,10 @@ package abika.sinaudicodingjavaexpert.submissionmovie.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import abika.sinaudicodingjavaexpert.submissionmovie.adapter.TvshowAdapter;
 
 public class TVShow implements Parcelable {
     public static final Creator<TVShow> CREATOR = new Creator<TVShow>() {
@@ -25,132 +22,132 @@ public class TVShow implements Parcelable {
     };
 
     @SerializedName("name")
-    private String movieName;
+    private String tvName;
 
     @SerializedName("title")
-    private String movieTitle;
+    private String tvTitle;
 
     @SerializedName("poster_path")
-    private String moviePoster;
+    private String tvPoster;
 
     @SerializedName("overview")
-    private String movieOverview;
+    private String tvOverview;
 
     @SerializedName("id")
-    private int movieId;
+    private int tvId;
 
     @SerializedName("results")
-    private ArrayList<TVShow> movieResult;
+    private ArrayList<TVShow> tvResult;
 
     public ArrayList<TVShow> getResult() {
-        return movieResult;
+        return tvResult;
     }
 
     @SerializedName("genres")
-    private List<TVShow> movieGenre;
+    private List<TVShow> tvGenre;
 
     @SerializedName("original_language")
-    private String movieLanguage;
+    private String tvLanguage;
 
     @SerializedName("tagline")
-    private String movieTagline;
+    private String tvTagline;
 
     @SerializedName("runtime")
-    private int movieRuntime;
+    private int tvRuntime;
 
-    @SerializedName("release_date")
-    private String movieRelease;
+    @SerializedName("first_air_date")
+    private String tvRelease;
 
     @SerializedName("vote_average")
-    private float movieRating;
+    private float tvRating;
 
 
     public List<TVShow> getTVShowGenre() {
-        return movieGenre;
+        return tvGenre;
     }
 
     public void setTVShowGenre(List<TVShow> genres) {
-        this.movieGenre = genres;
+        this.tvGenre = genres;
     }
 
     public void setTVShowRating(float vote_average) {
-        this.movieRating= vote_average;
+        this.tvRating= vote_average;
     }
 
     public float getTVShowRating() {
-        return movieRating;
+        return tvRating;
     }
 
     public String getTVShowRelease() {
-        return movieRelease;
+        return tvRelease;
     }
 
     public void setTVShowRelease(String release_date) {
-        this.movieRelease = release_date;
+        this.tvRelease = release_date;
     }
 
     public String getTVShowTagline() {
-        return movieTagline;
+        return tvTagline;
     }
 
     public void setTVShowTagline(String tagline) {
-        this.movieTagline = tagline;
+        this.tvTagline = tagline;
     }
 
     public String getTVShowLanguage() {
-        return movieLanguage;
+        return tvLanguage;
     }
 
     public void setTVShowLanguage(String original_language) {
-        this.movieLanguage = original_language;
+        this.tvLanguage = original_language;
     }
 
     public int getTVShowRuntime() {
-        return movieRuntime;
+        return tvRuntime;
     }
 
     public void setTVShowRuntime(int runtime) {
-        this.movieRuntime = runtime;
+        this.tvRuntime = runtime;
     }
 
-    public String getName() {
-        return movieName;
+    public String getTVShowName() {
+        return tvName;
     }
 
-    public void setName(String name) {
-        this.movieName = name;
+    public void setTVShowName(String name) {
+        this.tvName = name;
     }
 
     public int getTVShowId() {
-        return movieId;
+        return tvId;
     }
 
     public void setTVShowId(int id) {
-        this.movieId = id;
+        this.tvId = id;
     }
 
     public String getTVShowTitle() {
-        return movieTitle;
+        return tvTitle;
     }
 
     public void setTVShowTitle(String title) {
-        this.movieTitle = title;
+        this.tvTitle = title;
     }
 
     public String getTVShowPoster() {
-        return moviePoster;
+        return tvPoster;
     }
 
     public void setTVShowPoster(String posterPath) {
-        this.moviePoster = posterPath;
+        this.tvPoster = posterPath;
     }
 
     public String getTVShowOverview() {
-        return movieOverview;
+        return tvOverview;
     }
 
     public void setTVShowOverview(String overview) {
-        this.movieOverview = overview;
+        this.tvOverview = overview;
     }
 
 
@@ -158,11 +155,12 @@ public class TVShow implements Parcelable {
     }
 
     protected TVShow(Parcel in) {
-        this.movieTitle = in.readString();
-        this.moviePoster = in.readString();
-        this.movieOverview = in.readString();
-        this.movieId = in.readInt();
-        this.movieRating = in.readFloat();
+        this.tvTitle = in.readString();
+        this.tvPoster = in.readString();
+        this.tvOverview = in.readString();
+        this.tvRelease = in.readString();
+        this.tvId = in.readInt();
+        this.tvRating = in.readFloat();
     }
 
     @Override
@@ -172,10 +170,11 @@ public class TVShow implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.movieTitle);
-        dest.writeString(this.moviePoster);
-        dest.writeString(this.movieOverview);
-        dest.writeInt(this.movieId);
-        dest.writeFloat(this.movieRating);
+        dest.writeString(this.tvTitle);
+        dest.writeString(this.tvPoster);
+        dest.writeString(this.tvOverview);
+        dest.writeString(this.tvRelease);
+        dest.writeInt(this.tvId);
+        dest.writeFloat(this.tvRating);
     }
 }

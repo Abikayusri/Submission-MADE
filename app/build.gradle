@@ -17,9 +17,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         buildTypes.each {
-            it.buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/3/movie/popular?api_key="'
+            it.buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/3/"'
             it.buildConfigField 'String', 'API_KEY', '"8c79c4bffb6ca736af4e8d97f77ca61f"'
-            it.buildConfigField 'String', 'URL_POSTER', '"https://image.tmdb.org/t/p/w780"'
+            it.buildConfigField 'String', 'URL_POSTER', '"https://image.tmdb.org/t/p/w500"'
         }
     }
 

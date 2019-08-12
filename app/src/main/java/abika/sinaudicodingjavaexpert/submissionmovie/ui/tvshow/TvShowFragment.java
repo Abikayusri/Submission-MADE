@@ -1,89 +1,95 @@
 package abika.sinaudicodingjavaexpert.submissionmovie.ui.tvshow;
 
 
-import android.content.res.TypedArray;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
-import abika.sinaudicodingjavaexpert.submissionmovie.adapter.MovieAdapter;
-import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
+import abika.sinaudicodingjavaexpert.submissionmovie.adapter.TvShowAdapter;
+import abika.sinaudicodingjavaexpert.submissionmovie.data.TvShowResponse;
+import abika.sinaudicodingjavaexpert.submissionmovie.model.TVShow;
+import abika.sinaudicodingjavaexpert.submissionmovie.utils.ItemClickSupport;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class TvShowFragment extends Fragment {
-
-
-    private String[] dataTvName;
-    private String[] dataTvDescription;
-    private String[] dataTvRelease;
-    private String[] dataTvRate;
-    private String[] dataTvGenre;
-    private TypedArray dataTvPoster;
-
-    private RecyclerView rvCategory;
-    private final ArrayList<Movie> list = new ArrayList<>();
+    private ArrayList<TVShow> tvShowsList = new ArrayList<>();
+    private ProgressBar tvProgressbar;
+    private TvShowAdapter tvAdapter;
+    private RecyclerView tvRecycler;
 
     public TvShowFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        TvShowViewModel tvViewModel = ViewModelProviders.of(this).get(TvShowViewModel.class);
+        tvViewModel.getTvShow();
+        showLoading(true);
+        tvViewModel.getListTv().observe(this, getTv);
+    }
+
+    @Override
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View v = inflater.inflate(R.layout.fragment_movies, container, false);
-        rvCategory = v.findViewById(R.id.rv_list_movie);
-        rvCategory.setHasFixedSize(true);
-
-        prepare();
-        addItem();
-        showRecycleList();
-
-        return v;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_tvshow, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        tvRecycler = view.findViewById(R.id.rv_list_tvshow);
+        tvProgressbar = view.findViewById(R.id.pb_frag_tvshow);
 
-    private void addItem() {
-        ArrayList<Movie> movies = new ArrayList<>();
-        for (int i = 0; i < dataTvName.length; i++) {
-            Movie movie = new Movie();
-            movie.setImgResource(dataTvPoster.getResourceId(i, -1));
-            movie.setMovieName(dataTvName[i]);
-            movie.setMovieDescription(dataTvDescription[i]);
-            movie.setMovieRelease(dataTvRelease[i]);
-            movie.setMovieRating(dataTvRate[i]);
-            movie.setMovieGenre(dataTvGenre[i]);
+        tvRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        tvAdapter = new TvShowAdapter(getActivity());
+        tvAdapter.setTvShowList(tvShowsList);
+        tvRecycler.setAdapter(tvAdapter);
+        onItemClick();
+    }
 
-            movies.add(movie);
+    private Observer<TvShowResponse> getTv = new Observer<TvShowResponse>() {
+        @Override
+        public void onChanged(@Nullable TvShowResponse tvShowResponse) {
+            tvAdapter.setData(tvShowResponse);
+            showLoading(false);
         }
-        list.addAll(movies);
+    };
+
+    private void showLoading(Boolean state) {
+        if (state) {
+            tvProgressbar.setVisibility(View.VISIBLE);
+        } else {
+            tvProgressbar.setVisibility(View.GONE);
+        }
     }
 
-    private void prepare() {
-        dataTvName = getResources().getStringArray(R.array.data_tv_name);
-        dataTvRate = getResources().getStringArray(R.array.data_tv_rating);
-        dataTvGenre = getResources().getStringArray(R.array.data_tv_genre);
-        dataTvRelease = getResources().getStringArray(R.array.data_tv_release);
-        dataTvDescription = getResources().getStringArray(R.array.data_tv_desc);
-        dataTvPoster = getResources().obtainTypedArray(R.array.data_tv_poster);
-    }
-
-    private void showRecycleList(){
-        rvCategory.setLayoutManager(new LinearLayoutManager(getActivity()));
-        MovieAdapter movieAdapter = new MovieAdapter(getActivity());
-        movieAdapter.setListMovie(list);
-        rvCategory.setAdapter(movieAdapter);
+    private void onItemClick() {
+        ItemClickSupport.addTo(tvRecycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                Intent intent = new Intent(getActivity(), TvShowDetailActivity.class);
+                intent.putExtra(TvShowDetailActivity.EXTRA_DATA, tvShowsList.get(position));
+                startActivity(intent);
+            }
+        });
     }
 }

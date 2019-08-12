@@ -1,87 +1,94 @@
 package abika.sinaudicodingjavaexpert.submissionmovie.ui.movies;
 
 
-import android.content.res.TypedArray;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
+import abika.sinaudicodingjavaexpert.submissionmovie.data.MovieResponse;
 import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
 import abika.sinaudicodingjavaexpert.submissionmovie.adapter.MovieAdapter;
+import abika.sinaudicodingjavaexpert.submissionmovie.utils.ItemClickSupport;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class MoviesFragment extends Fragment {
+    private ArrayList<Movie> movieList = new ArrayList<>();
+    private ProgressBar mvProgressbar;
+    private MovieAdapter mvAdapter;
+    private RecyclerView mvRecycler;
 
-    private String[] dataMovieName;
-    private String[] dataMovieDescription;
-    private String[] dataMovieRelease;
-    private String[] dataMovieRate;
-    private String[] dataMovieGenre;
-    private TypedArray dataMoviePoster;
+    public MoviesFragment(){
 
-    private RecyclerView rvCategory;
-    private final ArrayList<Movie> list = new ArrayList<>();
-
-    public MoviesFragment() {
-        // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        MoviesViewModel mvViewModel = ViewModelProviders.of(this).get(MoviesViewModel.class);
+        mvViewModel.getMovie();
+        showLoading(true);
+        mvViewModel.getListMovie().observe(this, getMovie);
+    }
+
+    @Override
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_movies, container, false);
-        rvCategory = v.findViewById(R.id.rv_list_movie);
-        rvCategory.setHasFixedSize(true);
 
-        prepare();
-        addItem();
-
-        showRecycleList();
-
-        return v;
+        return inflater.inflate(R.layout.fragment_movies, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mvRecycler = view.findViewById(R.id.rv_list_movie);
+        mvProgressbar = view.findViewById(R.id.pb_frag_movie);
 
-    private void addItem() {
-        ArrayList<Movie> movies = new ArrayList<>();
-        for (int i = 0; i < dataMovieName.length; i++) {
-            Movie movie = new Movie();
-            movie.setImgResource(dataMoviePoster.getResourceId(i, -1));
-            movie.setMovieName(dataMovieName[i]);
-            movie.setMovieDescription(dataMovieDescription[i]);
-            movie.setMovieRelease(dataMovieRelease[i]);
-            movie.setMovieRating(dataMovieRate[i]);
-            movie.setMovieGenre(dataMovieGenre[i]);
+        mvRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        mvAdapter = new MovieAdapter(getActivity());
+        mvAdapter.setMovieList(movieList);
+        mvRecycler.setAdapter(mvAdapter);
+        onItemClick();
+    }
 
-            movies.add(movie);
+    private Observer<MovieResponse> getMovie = new Observer<MovieResponse>() {
+        @Override
+        public void onChanged(@Nullable MovieResponse movieResponse) {
+            mvAdapter.setData(movieResponse);
+            showLoading(false);
         }
-        list.addAll(movies);
+    };
+
+    private void showLoading(Boolean state) {
+        if (state) {
+            mvProgressbar.setVisibility(View.VISIBLE);
+        } else {
+            mvProgressbar.setVisibility(View.GONE);
+        }
     }
 
-    private void prepare() {
-        dataMovieName = getResources().getStringArray(R.array.data_movie_name);
-        dataMovieRate = getResources().getStringArray(R.array.data_movie_rating);
-        dataMovieGenre = getResources().getStringArray(R.array.data_movie_genre);
-        dataMovieRelease = getResources().getStringArray(R.array.data_movie_release);
-        dataMovieDescription = getResources().getStringArray(R.array.data_movie_desc);
-        dataMoviePoster = getResources().obtainTypedArray(R.array.data_movie_poster);
-    }
-
-    private void showRecycleList(){
-        rvCategory.setLayoutManager(new LinearLayoutManager(getActivity()));
-        MovieAdapter movieAdapter = new MovieAdapter(getActivity());
-        movieAdapter.setListMovie(list);
-        rvCategory.setAdapter(movieAdapter);
+    private void onItemClick() {
+        ItemClickSupport.addTo(mvRecycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                Intent intent = new Intent(getActivity(), MoviesDetailActivity.class);
+                intent.putExtra(MoviesDetailActivity.EXTRA_DATA, movieList.get(position));
+                startActivity(intent);
+            }
+        });
     }
 }
 

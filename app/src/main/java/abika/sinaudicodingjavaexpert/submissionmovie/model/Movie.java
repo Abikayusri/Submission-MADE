@@ -112,11 +112,11 @@ public class Movie implements Parcelable {
         this.movieRuntime = runtime;
     }
 
-    public String getName() {
+    public String getMovieName() {
         return movieName;
     }
 
-    public void setName(String name) {
+    public void setMovieName(String name) {
         this.movieName = name;
     }
 
@@ -160,6 +160,7 @@ public class Movie implements Parcelable {
         this.movieTitle = in.readString();
         this.moviePoster = in.readString();
         this.movieOverview = in.readString();
+        this.movieRelease = in.readString();
         this.movieId = in.readInt();
         this.movieRating = in.readFloat();
     }
@@ -174,6 +175,7 @@ public class Movie implements Parcelable {
         dest.writeString(this.movieTitle);
         dest.writeString(this.moviePoster);
         dest.writeString(this.movieOverview);
+        dest.writeString(this.movieRelease);
         dest.writeInt(this.movieId);
         dest.writeFloat(this.movieRating);
     }

@@ -5,7 +5,7 @@
     android:background="@drawable/ui_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.DetailActivity"
+    tools:context=".ui.tvshow.TvShowDetailActivity"
     tools:ignore="Overdraw">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <include
-            android:id="@+id/header_movie_detail"
+            android:id="@+id/header_tvshow_detail"
             layout="@layout/item_detail_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -26,6 +26,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header_movie_detail" />
+            app:layout_constraintTop_toBottomOf="@+id/header_tvshow_detail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
