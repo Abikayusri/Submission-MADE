@@ -39,7 +39,7 @@ public class MoviesFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         MoviesViewModel mvViewModel = ViewModelProviders.of(this).get(MoviesViewModel.class);
-        mvViewModel.getMovie();
+        mvViewModel.getMovie(getContext());
         showLoading(true);
         mvViewModel.getListMovie().observe(this, getMovie);
     }
