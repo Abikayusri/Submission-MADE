@@ -1,6 +1,7 @@
 package abika.sinaudicodingjavaexpert.submissionmovie.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,10 +47,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(@NonNull final MovieViewHolder movieViewHolder, final int position) {
-        movieViewHolder.txtMovieTitle.setText(movieList.get(position).getMovieTitle());
+        movieViewHolder.txtMovieTitle.setText(movieList.get(position).getMovieOrTitle());
         movieViewHolder.txtMovieDescription.setText(movieList.get(position).getMovieOverview());
         movieViewHolder.txtMovieRating.setText(String.valueOf(movieList.get(position).getMovieRating()));
         movieViewHolder.getAdapterPosition();
+
+        Log.d("MovieAdapter", "Status Data: " + movieList.get(position).getMovieTitle());
+        Log.d("MovieAdapter", "Status Data: " + movieList.get(position).getMovieOrTitle());
+        Log.d("MovieAdapter", "Status Data: " + movieList.get(position).getMovieOverview());
+        Log.d("MovieAdapter", "Status Data: " + movieList.get(position).getMovieRating());
+
         Glide.with(context)
                 .load(BuildConfig.URL_POSTER + getMovieList()
                         .get(position)

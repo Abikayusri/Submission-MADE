@@ -38,7 +38,7 @@
             android:id="@+id/tv_item_genre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/genre_filmnya"
+            android:text="@string/rating_film"
             android:textSize="16sp"
             android:textColor="@android:color/white" />
 

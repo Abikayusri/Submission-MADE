@@ -15,10 +15,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TvShowViewModel extends ViewModel {
-    private MutableLiveData<TvShowResponse> listTv;
+    private MutableLiveData<TvShowResponse> tvList;
 
     public TvShowViewModel() {
-        listTv = new MutableLiveData<>();
+        tvList = new MutableLiveData<>();
     }
 
     public void getTvShow() {
@@ -28,7 +28,7 @@ public class TvShowViewModel extends ViewModel {
                 .enqueue(new Callback<TvShowResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<TvShowResponse> call, @NonNull Response<TvShowResponse> response) {
-                        listTv.postValue(response.body());
+                        tvList.postValue(response.body());
                     }
 
                     @Override
@@ -39,7 +39,7 @@ public class TvShowViewModel extends ViewModel {
 
     }
 
-    public LiveData<TvShowResponse> getListTv() {
-        return listTv;
+    public LiveData<TvShowResponse> gettvList() {
+        return tvList;
     }
 }

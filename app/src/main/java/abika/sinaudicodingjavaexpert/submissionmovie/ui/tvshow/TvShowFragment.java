@@ -28,66 +28,66 @@ import abika.sinaudicodingjavaexpert.submissionmovie.model.TVShow;
 import abika.sinaudicodingjavaexpert.submissionmovie.utils.ItemClickSupport;
 
 public class TvShowFragment extends Fragment {
-    private ArrayList<TVShow> tvShowsList = new ArrayList<>();
-    private ProgressBar tvProgressbar;
-    private TvShowAdapter tvAdapter;
-    private RecyclerView tvRecycler;
+    private ArrayList<TVShow> tvList = new ArrayList<>();
+    private ProgressBar mvProgressbar;
+    private TvShowAdapter mvAdapter;
+    private RecyclerView mvRecycler;
 
-    public TvShowFragment() {
-        // Required empty public constructor
+    public TvShowFragment(){
+
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        TvShowViewModel tvViewModel = ViewModelProviders.of(this).get(TvShowViewModel.class);
-        tvViewModel.getTvShow();
+        TvShowViewModel mvViewModel = ViewModelProviders.of(this).get(TvShowViewModel.class);
+        mvViewModel.getTvShow();
         showLoading(true);
-        tvViewModel.getListTv().observe(this, getTv);
+        mvViewModel.gettvList().observe(this, getTv);
     }
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_tvshow, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tvRecycler = view.findViewById(R.id.rv_list_tvshow);
-        tvProgressbar = view.findViewById(R.id.pb_frag_tvshow);
+        mvRecycler = view.findViewById(R.id.rv_list_tvshow);
+        mvProgressbar = view.findViewById(R.id.pb_frag_tvshow);
 
-        tvRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        tvAdapter = new TvShowAdapter(getActivity());
-        tvAdapter.setTvShowList(tvShowsList);
-        tvRecycler.setAdapter(tvAdapter);
+        mvRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        mvAdapter = new TvShowAdapter(getActivity());
+        mvAdapter.setTvShowList(tvList);
+        mvRecycler.setAdapter(mvAdapter);
         onItemClick();
     }
 
     private Observer<TvShowResponse> getTv = new Observer<TvShowResponse>() {
         @Override
         public void onChanged(@Nullable TvShowResponse tvShowResponse) {
-            tvAdapter.setData(tvShowResponse);
+            mvAdapter.setData(tvShowResponse);
             showLoading(false);
         }
     };
 
     private void showLoading(Boolean state) {
         if (state) {
-            tvProgressbar.setVisibility(View.VISIBLE);
+            mvProgressbar.setVisibility(View.VISIBLE);
         } else {
-            tvProgressbar.setVisibility(View.GONE);
+            mvProgressbar.setVisibility(View.GONE);
         }
     }
 
     private void onItemClick() {
-        ItemClickSupport.addTo(tvRecycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+        ItemClickSupport.addTo(mvRecycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Intent intent = new Intent(getActivity(), TvShowDetailActivity.class);
-                intent.putExtra(TvShowDetailActivity.EXTRA_DATA, tvShowsList.get(position));
+                intent.putExtra(TvShowDetailActivity.EXTRA_DATA, tvList.get(position));
                 startActivity(intent);
             }
         });

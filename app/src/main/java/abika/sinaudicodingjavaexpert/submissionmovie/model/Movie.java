@@ -57,12 +57,23 @@ public class Movie implements Parcelable {
     @SerializedName("runtime")
     private int movieRuntime;
 
+    @SerializedName("original_title")
+    private String movieOrTitle;
+
     @SerializedName("release_date")
     private String movieRelease;
 
     @SerializedName("vote_average")
     private float movieRating;
 
+
+    public String getName() {
+        return movieName;
+    }
+
+    public void setName(String nameMovie) {
+        this.movieName = nameMovie;
+    }
 
     public List<Movie> getMovieGenre() {
         return movieGenre;
@@ -136,6 +147,11 @@ public class Movie implements Parcelable {
         this.movieTitle = title;
     }
 
+    public void setMovieOrTitle(String ortitle) {
+        this.movieOrTitle = ortitle;}
+
+    public String getMovieOrTitle() { return movieOrTitle;}
+
     public String getMoviePoster() {
         return moviePoster;
     }
@@ -158,6 +174,7 @@ public class Movie implements Parcelable {
 
     protected Movie(Parcel in) {
         this.movieTitle = in.readString();
+        this.movieOrTitle = in.readString();
         this.moviePoster = in.readString();
         this.movieOverview = in.readString();
         this.movieRelease = in.readString();
@@ -173,6 +190,7 @@ public class Movie implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.movieTitle);
+        dest.writeString(this.movieOrTitle);
         dest.writeString(this.moviePoster);
         dest.writeString(this.movieOverview);
         dest.writeString(this.movieRelease);

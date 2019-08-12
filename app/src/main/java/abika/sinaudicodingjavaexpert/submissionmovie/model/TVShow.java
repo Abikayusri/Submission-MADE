@@ -24,9 +24,6 @@ public class TVShow implements Parcelable {
     @SerializedName("name")
     private String tvName;
 
-    @SerializedName("title")
-    private String tvTitle;
-
     @SerializedName("poster_path")
     private String tvPoster;
 
@@ -52,15 +49,14 @@ public class TVShow implements Parcelable {
     @SerializedName("tagline")
     private String tvTagline;
 
-    @SerializedName("runtime")
-    private int tvRuntime;
-
     @SerializedName("first_air_date")
     private String tvRelease;
 
     @SerializedName("vote_average")
     private float tvRating;
 
+    @SerializedName("original_name")
+    private String tvOrName;
 
     public List<TVShow> getTVShowGenre() {
         return tvGenre;
@@ -102,17 +98,14 @@ public class TVShow implements Parcelable {
         this.tvLanguage = original_language;
     }
 
-    public int getTVShowRuntime() {
-        return tvRuntime;
-    }
-
-    public void setTVShowRuntime(int runtime) {
-        this.tvRuntime = runtime;
-    }
-
     public String getTVShowName() {
         return tvName;
     }
+
+    public void setTvOrName(String orname) {
+        this.tvOrName = orname;}
+
+    public String getTvOrName() { return tvOrName;}
 
     public void setTVShowName(String name) {
         this.tvName = name;
@@ -124,14 +117,6 @@ public class TVShow implements Parcelable {
 
     public void setTVShowId(int id) {
         this.tvId = id;
-    }
-
-    public String getTVShowTitle() {
-        return tvTitle;
-    }
-
-    public void setTVShowTitle(String title) {
-        this.tvTitle = title;
     }
 
     public String getTVShowPoster() {
@@ -155,7 +140,7 @@ public class TVShow implements Parcelable {
     }
 
     protected TVShow(Parcel in) {
-        this.tvTitle = in.readString();
+        this.tvName = in.readString();
         this.tvPoster = in.readString();
         this.tvOverview = in.readString();
         this.tvRelease = in.readString();
@@ -170,7 +155,7 @@ public class TVShow implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.tvTitle);
+        dest.writeString(this.tvName);
         dest.writeString(this.tvPoster);
         dest.writeString(this.tvOverview);
         dest.writeString(this.tvRelease);

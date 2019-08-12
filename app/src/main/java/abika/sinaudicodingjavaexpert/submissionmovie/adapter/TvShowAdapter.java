@@ -1,6 +1,7 @@
 package abika.sinaudicodingjavaexpert.submissionmovie.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,34 +46,40 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final TvViewHolder tvViewHolder, final int position) {
-        tvViewHolder.txtTvshowName.setText(tvList.get(position).getTVShowName());
-        tvViewHolder.txtTvshowDescription.setText(tvList.get(position).getTVShowOverview());
-        tvViewHolder.txtTvshowRating.setText(String.valueOf(tvList.get(position).getTVShowRating()));
+        tvViewHolder.txtMovieTitle.setText(tvList.get(position).getTVShowName());
+        tvViewHolder.txtMovieDescription.setText(tvList.get(position).getTVShowOverview());
+        tvViewHolder.txtMovieRating.setText(String.valueOf(tvList.get(position).getTVShowRating()));
         tvViewHolder.getAdapterPosition();
+
+        Log.d("TvShowAdapter", "Status Data: " + tvList.get(position).getTVShowName());
+        Log.d("TvShowAdapter", "Status Data: " + tvList.get(position).getTvOrName());
+        Log.d("TvShowAdapter", "Status Data: " + tvList.get(position).getTVShowOverview());
+        Log.d("TvShowAdapter", "Status Data: " + tvList.get(position).getTVShowRating());
+
         Glide.with(context)
                 .load(BuildConfig.URL_POSTER + getTvList()
                         .get(position)
                         .getTVShowPoster())
-                .into(tvViewHolder.imgTvshowPoster);
+                .into(tvViewHolder.imgMoviePoster);
     }
 
     @Override
     public int getItemCount() { return getTvList().size(); }
 
     public class TvViewHolder extends RecyclerView.ViewHolder {
-        final TextView txtTvshowName;
-        final TextView txtTvshowDescription;
-        final TextView txtTvshowGenre;
-        final TextView txtTvshowRating;
-        final ImageView imgTvshowPoster;
+        final TextView txtMovieTitle;
+        final TextView txtMovieDescription;
+        final TextView txtMovieGenre;
+        final TextView txtMovieRating;
+        final ImageView imgMoviePoster;
 
         TvViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtTvshowName = itemView.findViewById(R.id.tv_item_name);
-            txtTvshowDescription = itemView.findViewById(R.id.tv_item_desc);
-            txtTvshowGenre = itemView.findViewById(R.id.tv_item_genre);
-            txtTvshowRating = itemView.findViewById(R.id.tv_item_rating);
-            imgTvshowPoster = itemView.findViewById(R.id.iv_item_photo);
+            txtMovieTitle = itemView.findViewById(R.id.tv_item_name);
+            txtMovieDescription = itemView.findViewById(R.id.tv_item_desc);
+            txtMovieGenre = itemView.findViewById(R.id.tv_item_genre);
+            txtMovieRating = itemView.findViewById(R.id.tv_item_rating);
+            imgMoviePoster = itemView.findViewById(R.id.iv_item_photo);
         }
     }
 }
