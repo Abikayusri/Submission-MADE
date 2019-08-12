@@ -41,7 +41,7 @@ public class TvShowFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         TvShowViewModel mvViewModel = ViewModelProviders.of(this).get(TvShowViewModel.class);
-        mvViewModel.getTvShow();
+        mvViewModel.getTvShow(getContext());
         showLoading(true);
         mvViewModel.gettvList().observe(this, getTv);
     }

@@ -1,6 +1,8 @@
 package abika.sinaudicodingjavaexpert.submissionmovie.ui.tvshow;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -21,7 +23,7 @@ public class TvShowViewModel extends ViewModel {
         tvList = new MutableLiveData<>();
     }
 
-    public void getTvShow() {
+    public void getTvShow(Context context) {
         ApiService.create()
                 .create(ApiRepository.class)
                 .getTvShows()
@@ -29,11 +31,13 @@ public class TvShowViewModel extends ViewModel {
                     @Override
                     public void onResponse(@NonNull Call<TvShowResponse> call, @NonNull Response<TvShowResponse> response) {
                         tvList.postValue(response.body());
+                        Toast.makeText(context,"Succes Load Data", Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onFailure(Call<TvShowResponse> call, Throwable t) {
                         Log.d("onFailure: ", t.getMessage());
+                        Toast.makeText(context,"Error Load Data", Toast.LENGTH_LONG).show();
                     }
                 });
 
