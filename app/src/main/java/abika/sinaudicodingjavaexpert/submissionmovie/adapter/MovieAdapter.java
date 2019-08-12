@@ -1,114 +1,82 @@
 package abika.sinaudicodingjavaexpert.submissionmovie.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-
 import java.util.ArrayList;
-
+import abika.sinaudicodingjavaexpert.submissionmovie.BuildConfig;
 import abika.sinaudicodingjavaexpert.submissionmovie.R;
+import abika.sinaudicodingjavaexpert.submissionmovie.data.MovieResponse;
 import abika.sinaudicodingjavaexpert.submissionmovie.model.Movie;
-import abika.sinaudicodingjavaexpert.submissionmovie.ui.DetailActivity;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.CategoryViewHolder> {
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
     private final Context context;
-    private ArrayList<Movie> listMovie;
 
+    private ArrayList<Movie> movieList = new ArrayList<>();
     public MovieAdapter(Context context) {
         this.context = context;
     }
 
-    private ArrayList<Movie> getListMovie() {
-        return listMovie;
+    private ArrayList<Movie> getMovieList() { return movieList; }
+
+    public void setMovieList(ArrayList<Movie> movieList) {
+        this.movieList = movieList;
     }
 
-    public void setListMovie(ArrayList<Movie> listMovie) {
-        this.listMovie = listMovie;
+
+    public void setData(MovieResponse items) {
+        movieList.clear();
+        movieList.addAll(items.getMoviesList());
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View itemRow = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_movie, viewGroup, false);
-        return new CategoryViewHolder(itemRow);
+    public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View itemRow = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row, viewGroup, false);
+        return new MovieViewHolder(itemRow);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final CategoryViewHolder categoryViewHolder, final int position) {
-        categoryViewHolder.txtMovieName.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieName());
-        categoryViewHolder.txtMovieDescription.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieDescription());
-//        categoryViewHolder.txtMovieRelease.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRelease());
-        categoryViewHolder.txtMovieGenre.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieGenre());
-        categoryViewHolder.txtMovieRating.setText(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
+    public void onBindViewHolder(@NonNull final MovieViewHolder movieViewHolder, final int position) {
+        movieViewHolder.txtMovieTitle.setText(movieList.get(position).getMovieOrTitle());
+        movieViewHolder.txtMovieDescription.setText(movieList.get(position).getMovieOverview());
+        movieViewHolder.txtMovieRating.setText(String.valueOf(movieList.get(position).getMovieRating()));
+        movieViewHolder.getAdapterPosition();
 
-        categoryViewHolder.getAdapterPosition();
+        Log.d("MovieAdapter", "Status Data: " + movieList.get(position).getMovieTitle());
+        Log.d("MovieAdapter", "Status Data: " + movieList.get(position).getMovieOrTitle());
+        Log.d("MovieAdapter", "Status Data: " + movieList.get(position).getMovieOverview());
+        Log.d("MovieAdapter", "Status Data: " + movieList.get(position).getMovieRating());
+
         Glide.with(context)
-                .load(getListMovie().get(categoryViewHolder.getAdapterPosition()).getImgResource())
-                .apply(new RequestOptions())
-                .into(categoryViewHolder.imgMoviePoster);
-
-
-//        float backgroundRating = Float.parseFloat(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
-//
-//        if (backgroundRating >= 8.0) {
-//            categoryViewHolder.txtMovieRating.setBackgroundColor(Color.parseColor("#3498db"));
-//        } else if (backgroundRating >= 7.0) {
-//            categoryViewHolder.txtMovieRating.setBackgroundColor(Color.parseColor("#2ecc71"));
-//        } else if (backgroundRating >= 6.0) {
-//            categoryViewHolder.txtMovieRating.setBackgroundColor(Color.parseColor("#f1c40f"));
-//        } else if (backgroundRating >= 5.0) {
-//            categoryViewHolder.txtMovieRating.setBackgroundColor(Color.parseColor("#e67e22"));
-//        } else {
-//            categoryViewHolder.txtMovieRating.setBackgroundColor(Color.parseColor("#e74c3c"));
-//        }
-
-        categoryViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(context, "Kamu Memilih "+  getListMovie().get(position).getMovieName(), Toast.LENGTH_SHORT).show();
-
-                Movie movie = new Movie();
-                movie.setMovieName(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieName());
-                movie.setMovieRating(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRating());
-                movie.setMovieGenre(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieGenre());
-                movie.setMovieDescription(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieDescription());
-                movie.setMovieRelease(getListMovie().get(categoryViewHolder.getAdapterPosition()).getMovieRelease());
-                movie.setImgResource(getListMovie().get(categoryViewHolder.getAdapterPosition()).getImgResource());
-
-                Intent moveIntent = new Intent(context, DetailActivity.class);
-                moveIntent.putExtra(DetailActivity.EXTRA_MOVIE, movie);
-                context.startActivity(moveIntent);
-            }
-        });
+                .load(BuildConfig.URL_POSTER + getMovieList()
+                        .get(position)
+                        .getMoviePoster())
+                .into(movieViewHolder.imgMoviePoster);
     }
 
     @Override
-    public int getItemCount() {
-        return getListMovie().size();
-    }
+    public int getItemCount() { return getMovieList().size(); }
 
-    public class CategoryViewHolder extends RecyclerView.ViewHolder {
-        final TextView txtMovieName;
+    public class MovieViewHolder extends RecyclerView.ViewHolder {
+        final TextView txtMovieTitle;
         final TextView txtMovieDescription;
         final TextView txtMovieGenre;
         final TextView txtMovieRating;
         final ImageView imgMoviePoster;
 
-        CategoryViewHolder(@NonNull View itemView) {
+        MovieViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtMovieName = itemView.findViewById(R.id.tv_item_name);
+            txtMovieTitle = itemView.findViewById(R.id.tv_item_name);
             txtMovieDescription = itemView.findViewById(R.id.tv_item_desc);
             txtMovieGenre = itemView.findViewById(R.id.tv_item_genre);
             txtMovieRating = itemView.findViewById(R.id.tv_item_rating);
